@@ -1,0 +1,53 @@
+* {
+  font-family: 'Nunito', sans-serif;
+  color: #3E3F43;
+}
+
+.bookList.figure-img.img-fluid{
+max-width: 200px;
+max-height: 150px;
+width: auto;
+height: auto;
+}
+
+.react-multi-carousel-list{
+  height: 200px;
+}
+
+.react-multi-carousel-list.lendo{
+  background-color: #EFE6EF;
+}
+
+.react-multi-carousel-list.quero-ler{
+  background-color: #DDF1FD;
+}
+
+.react-multi-carousel-list.lidos{
+  background-color: #D2E4E2;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 400;
+  margin-left: 33px;
+  margin-top: 20px;
+}
+
+.figure {
+  /* margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.figure-caption{
+  text-align: center;
+  font-weight: 600;
+}
+
+
+

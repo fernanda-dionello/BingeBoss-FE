@@ -1,0 +1,31 @@
+.modal-body{
+  display: flex;
+  flex-direction: column;
+}
+
+.btn.btn-primary.info-btn{
+  background-color: #CCB2D8;
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.btn.btn-primary.remove-btn{
+  background-color: #C0BDC1;
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.btn.btn-primary {
+  width: 100%;
+  margin: 15px 0;
+  align-self: center;
+}
+
+
+.btn.btn-primary:hover, .btn.btn-primary:active {
+  background-color: #e5e4e5;
+}

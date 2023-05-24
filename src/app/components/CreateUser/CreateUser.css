@@ -1,0 +1,16 @@
+.criar-conta-text {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 20px;
+  font-weight: 700;
+  text-align: left;
+  width: 80%;
+}
+
+#modal .modal-content .modal-body{
+  align-items: center;
+}
+
+#form{
+  width: 80%;
+}

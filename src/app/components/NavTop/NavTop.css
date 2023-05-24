@@ -1,0 +1,20 @@
+.navbar{
+  background-color: #0A0126;
+}
+
+.navbar>.container {
+  margin-right: 20px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.navbar-brand {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.d-inline-block {
+  height: 100%;
+  width: 100%;
+}
