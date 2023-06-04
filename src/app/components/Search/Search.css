@@ -1,0 +1,44 @@
+input.me-2.form-control {
+  width: 100%;
+  color: #FFF;
+  background-color: #fff3;
+  border: 1px solid #fff3;
+  min-width: -webkit-fill-available;
+}
+
+input.me-2.form-control:focus {
+  border-color: #fff3;
+  box-shadow: none;
+}
+
+form.d-flex{
+  width: 100%;
+  max-width: 625px;
+  min-width: 145px;
+}
+
+.filter-wrapper {
+  display: flex;
+  > p {
+    margin: auto;
+    color: #EEE;
+    font-weight: 700;
+    padding-left: 10px;
+    font-size: 16px;
+  }
+}
+
+button.btn.btn-secondary:hover{
+  background-color: unset;
+  > div > img, > div > p {
+    filter: invert(34%) sepia(65%) saturate(850%) hue-rotate(320deg) brightness(105%) contrast(119%);
+  };
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  flex-wrap: nowrap;
+  justify-content: center;
+}

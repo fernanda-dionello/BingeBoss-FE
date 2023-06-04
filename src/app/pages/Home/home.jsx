@@ -2,58 +2,46 @@ import { ContentSlider } from "../../components/ContentSlider/ContentSlider";
 import './home.css';
 import Api from "../../services/Api";
 import { useEffect, useState } from "react";
+import { BigSlider } from '../../components/BigSlider/BigSlider';
 
 export function Home(){
 
-    const [readingBooks, setReadingBooks] = useState([]);
-    const [wantToReadBooks, setWantToReadBooks] = useState([]);
-    const [readBooks, setReadBooks] = useState([]);
+    const [top10Contents, setTop10Contents] = useState([]);
+    const [recommendedContents, setRecommendedContents] = useState([]);
+    const [watchingContents, setWatchingContents] = useState([]);
+    const [watchedContents, setWatchedContents] = useState([]);
+    const [myList, setMyList] = useState([]);
+    const [abandonedContents, setAbandonedContents] = useState([]);
 
-    // useEffect(() => {
-    //     getReadingBooks()
-    //     getWantsToReadBooks()
-    //     getReadBooks()
-    // }, [])
+    useEffect(() => {
+        getTop10()
+    }, [])
 
-    async function getReadingBooks(){        
-        await Api.get('/readings/reading',
+    async function getTop10(){        
+        await Api.get('/trending?type=all&language=pt-BR',
         {
-			headers: {
-				'x-session-token': JSON.parse(localStorage.getItem('token')),
-			}
-		})
-            .then(res => setReadingBooks(res.data))
-            .catch(err => console.log(err));
-    }
-
-    async function getWantsToReadBooks(){        
-        await Api.get('/readings/wants-to-read',
-        {
-            headers: {
-                'x-session-token': JSON.parse(localStorage.getItem('token')),
-            }
+          headers: {
+            Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
+          }
         })
-            .then(res => setWantToReadBooks(res.data))
-            .catch(err => console.log(err));
-    }
-
-    async function getReadBooks(){        
-        await Api.get('/readings/read',
-        {
-            headers: {
-                'x-session-token': JSON.parse(localStorage.getItem('token')),
-            }
-        })
-            .then(res => setReadBooks(res.data))
-            .catch(err => console.log(err));
+        .then(res => setTop10Contents(res.data))
+        .catch(err => console.log(err));
     }
 
     return (
         <>
-            {/* <ContentSlider type='Lendo' books={readingBooks} onDelete={() => getReadingBooks()}/>
-            <ContentSlider type='Quero Ler' books={wantToReadBooks} onDelete={() => getWantsToReadBooks()}/>
-            <ContentSlider type='Lidos' books={readBooks} onDelete={() => getReadBooks()}/> */}
-            HOME
+          <BigSlider type='Top 10 most watched' content={top10Contents}/>
+          <ContentSlider type='Recommended for you' content={top10Contents}/>
+          <ContentSlider type='Watching' content={watchingContents}/>
+          <ContentSlider type='My List' content={myList}/>
+          <ContentSlider type='Watched' content={watchedContents}/>
+          <ContentSlider type='Abandoned' content={abandonedContents}/>
+
+          
+          {/* <ContentSlider type='Lendo' books={readingBooks} onDelete={() => getReadingBooks()}/>
+          <ContentSlider type='Quero Ler' books={wantToReadBooks} onDelete={() => getWantsToReadBooks()}/>
+          <ContentSlider type='Lidos' books={readBooks} onDelete={() => getReadBooks()}/> */}
+          
         </>
     )
 }

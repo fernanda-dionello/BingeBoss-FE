@@ -1,12 +1,22 @@
 .navbar{
   background-color: #0A0126;
+  width: 100%;
+  display: flex;
 }
 
-.navbar>.container {
-  margin-right: 20px;
-  margin-left: 20px;
+nav.navbar.navbar-expand{
+  width: 100%;
+  justify-content: space-between;
+  padding-right: 33px;
+  padding-left: 33px;
   display: flex;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 950px) {
+  nav.navbar.navbar-expand{
+    justify-content: center;
+  }
 }
 
 .navbar-brand {

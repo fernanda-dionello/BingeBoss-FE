@@ -1,3 +1,19 @@
+#modal .modal-content{
+  background: rgba(10, 1, 38, 0.82);
+}
+
+#modal .form-label{
+  color: #EEE;
+}
+
+#modal .modal-content .btn-close {
+  background:  transparent url('../../assets/close.png') no-repeat center;
+}
+
+#modal .modal-header{
+  border: none;
+}
+
 .modal-body{
   display: flex;
   flex-direction: column;

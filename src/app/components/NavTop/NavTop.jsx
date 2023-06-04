@@ -1,13 +1,17 @@
-import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import './NavTop.css'
 import logo from '../../assets/logo.svg'
+import { useContext } from 'react';
+import { Context } from '../../context/AuthContext';
+import { Search } from '../Search/Search';
+import Menu from '../Menu/Menu';
 
 export function NavTop(){
+  const { authenticated } = useContext(Context);
+
   return (
     <>
       <Navbar bsPrefix='navbar'>
-        <Container>
           <Navbar.Brand>
             <img
               src={logo}
@@ -17,7 +21,12 @@ export function NavTop(){
               alt="Logo MarcaTexto"
             />
           </Navbar.Brand>
-        </Container>
+          {authenticated ?
+            <>
+              <Search />
+              <Menu />
+            </>
+          : ''}
       </Navbar>
     </>
   );

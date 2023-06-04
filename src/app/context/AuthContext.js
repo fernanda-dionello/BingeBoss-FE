@@ -9,6 +9,7 @@ function AuthProvider({children}){
     const [authenticated, setAuthenticated] = useState(!!JSON.parse(localStorage.getItem('token')));
     const [isFetchingLogin, setIsFetchingLogin] = useState(false);
     const [isFetchingCreateUser, setIsFetchingCreateUser] = useState(false);
+    const [hasTextInSearchField, setHasTextInSearchField] = useState(false);
     
     const [loginError, setLoginError] = useState({isError: false, message: ''});
     const [createError, setCreateError] = useState({isError: false, message: ''});
@@ -25,11 +26,11 @@ function AuthProvider({children}){
             .finally(() => setIsFetchingLogin(false));
     }
 
-    async function handleCreateNewUser(name, email, password){
+    async function handleCreateNewUser(firstName, lastName, email, password){
         setIsFetchingCreateUser(true);
         setCreateError({ isError: false, message: ''})
         
-        await Api.post('/users', { name, email, password })
+        await Api.post('/users', { firstName, lastName, email, password })
             .then(res => handleLogin(email, password))
             .catch(err => setCreateError({ isError: true, message:  err.response.data.msg}))
             .finally(() => setIsFetchingCreateUser(false));
@@ -51,6 +52,8 @@ function AuthProvider({children}){
             handleCreateNewUser,
             isFetchingLogin,
             isFetchingCreateUser,
+            hasTextInSearchField,
+            setHasTextInSearchField,
             loginError,
             createError,
             setCreateError

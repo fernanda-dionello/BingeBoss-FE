@@ -1,0 +1,13 @@
+button.btn.btn-secondary{
+  --bs-btn-bg: none;
+  --bs-btn-border-color: none;
+  --bs-btn-hover-border-color: none;
+  --bs-btn-active-border-color: none;
+}
+
+button.btn.btn-secondary:hover{
+  background-color: unset;
+  > img {
+    filter: invert(34%) sepia(65%) saturate(850%) hue-rotate(320deg) brightness(105%) contrast(119%);
+  }
+}

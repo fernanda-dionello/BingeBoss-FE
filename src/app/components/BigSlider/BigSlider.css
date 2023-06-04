@@ -5,28 +5,11 @@
 
 .contentList.figure-img.img-fluid{
 width: auto;
-height: auto;
-}
-.empty-carousel {
-  height: 237.5px;
-  background-color: #3e3f4375;
+height: 700;
 }
 
-.type-title {
-  margin-top: 14px;
-  margin-bottom: 14px;
-}
-
-.react-multi-carousel-list.lendo{
-  background-color: #EFE6EF;
-}
-
-.react-multi-carousel-list.quero-ler{
-  background-color: #DDF1FD;
-}
-
-.react-multi-carousel-list.lidos{
-  background-color: #D2E4E2;
+.react-multi-carousel-list.top10{
+  background-color: unset;
 }
 
 h2 {
@@ -50,5 +33,11 @@ h2 {
   font-weight: 600;
 }
 
+img.contentList.figure-img.img-fluid, figure.big-slider-image.figure{
+  width: 100%;
+}
 
-
+.text-big-slider {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
