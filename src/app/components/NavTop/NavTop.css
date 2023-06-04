@@ -1,0 +1,30 @@
+.navbar{
+  background-color: #0A0126;
+  width: 100%;
+  display: flex;
+}
+
+nav.navbar.navbar-expand{
+  width: 100%;
+  justify-content: space-between;
+  padding-right: 33px;
+  padding-left: 33px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 950px) {
+  nav.navbar.navbar-expand{
+    justify-content: center;
+  }
+}
+
+.navbar-brand {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.d-inline-block {
+  height: 100%;
+  width: 100%;
+}

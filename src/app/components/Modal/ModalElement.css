@@ -1,0 +1,47 @@
+#modal .modal-content{
+  background: rgba(10, 1, 38, 0.82);
+}
+
+#modal .form-label{
+  color: #EEE;
+}
+
+#modal .modal-content .btn-close {
+  background:  transparent url('../../assets/close.png') no-repeat center;
+}
+
+#modal .modal-header{
+  border: none;
+}
+
+.modal-body{
+  display: flex;
+  flex-direction: column;
+}
+
+.btn.btn-primary.info-btn{
+  background-color: #CCB2D8;
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.btn.btn-primary.remove-btn{
+  background-color: #C0BDC1;
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.btn.btn-primary {
+  width: 100%;
+  margin: 15px 0;
+  align-self: center;
+}
+
+
+.btn.btn-primary:hover, .btn.btn-primary:active {
+  background-color: #e5e4e5;
+}
