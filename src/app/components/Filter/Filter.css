@@ -1,0 +1,54 @@
+#modal .modal-content .modal-body{
+  align-items: center;
+}
+
+.filter-title {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
+  width: 80%;
+  color: #EEE;
+}
+
+.filter-subtitle {
+  font-size: 16px;
+  color: #EEE;
+  width: 80%;
+  text-align: center;
+}
+
+.clear-filters-button.btn.btn-link {
+  margin-bottom: 1rem;
+  text-decoration: underline;
+  color: #EEE;
+  font-weight: 700;
+}
+
+.clear-filters-button.btn.btn-link:hover, .clear-filters-button.btn.btn-link:active {
+  color: #b9b9b9;
+}
+
+.filter-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+h4 {
+  font-weight: 700;
+  color: #EEE;
+}
+
+.filter-buttons-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 60%;
+  gap: 30px;
+}

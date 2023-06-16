@@ -7,10 +7,12 @@ import filter from '../../assets/filter.svg'
 import Button from 'react-bootstrap/esm/Button';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../context/AuthContext';
+import { Filter } from '../Filter/Filter';
 
 export function Search(){
   const [search, setSearch] = useState("");
   const [contentData, setContentData] = useState({});
+  const [openfilter, setOpenfilter] = useState(false);
   const { hasTextInSearchField, setHasTextInSearchField } = useContext(Context);
   const navigate = useNavigate();
   
@@ -74,8 +76,8 @@ export function Search(){
             }}
         />
       </Form>
-      <Button variant="secondary" onClick={() => navigate("/home")}>
-        <div className='filter-wrapper'>
+      <Button variant="secondary" onClick={() => setOpenfilter(true)}>
+        <div className='filter-wrapper-search'>
           <img
             src={filter}
             className="filter"
@@ -84,7 +86,7 @@ export function Search(){
           <p>Filters</p>
         </div> 
       </Button>
-    </div>
-  
+      <Filter isOpen={openfilter} onClose={() => setOpenfilter(false)}/>
+    </div>  
   )
 }

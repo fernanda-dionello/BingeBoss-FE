@@ -17,7 +17,7 @@ form.d-flex{
   min-width: 145px;
 }
 
-.filter-wrapper {
+.filter-wrapper-search {
   display: flex;
   > p {
     margin: auto;
