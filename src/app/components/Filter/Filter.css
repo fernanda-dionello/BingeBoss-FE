@@ -49,6 +49,24 @@ h4 {
   align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  width: 60%;
+  max-width: 80%;
+  min-width: 75%;
   gap: 30px;
 }
+
+.category-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.category {
+  max-width: fit-content;
+}
+
+button.button.button-filter.btn.btn-primary{
+  font-weight: 700;
+  font-size: 14px;
+}
+
