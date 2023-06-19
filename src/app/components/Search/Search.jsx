@@ -15,12 +15,13 @@ export function Search() {
   const [openfilter, setOpenfilter] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState("");
   const [selectedTypes, setSelectedTypes] = useState("");
-  const { hasTextInSearchField, setHasTextInSearchField } = useContext(Context);
+  const { hasTextInSearchField, setHasTextInSearchField, setFilters } = useContext(Context);
 
   const data = useRef(null);
 
   const childToParent = (childData) => {
     data.current = childData;
+    setFilters(data.current);
   };
   const navigate = useNavigate();
 
@@ -115,7 +116,7 @@ export function Search() {
           }}
         />
       </Form>
-      <Button variant="secondary" onClick={() => setOpenfilter(true)}>
+      <Button variant="secondary" onClick={() => setOpenfilter(true)} className={data.current !== null ? 'test' : 'unset'}>
         <div className="filter-wrapper-search">
           <img src={filter} className="filter" alt="Filter Content" />
           <p>Filters</p>

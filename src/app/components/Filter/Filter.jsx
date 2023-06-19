@@ -3,12 +3,15 @@ import Button from "react-bootstrap/Button";
 import "./Filter.css";
 import { categories } from "./utils/categories";
 import { CheckedButton } from "../CheckedButton/CheckedButton";
+import { useContext } from 'react';
+import { Context } from '../../context/AuthContext';
 
 export function Filter({ isOpen, onClose, childToParentData }) {
   let selectedCategories = [];
   let selectedType = [];
   let categoriesString = "";
   let typeString = "";
+  const { filters, setFilters } = useContext(Context);
 
   const handleSubmitRecommendations = (e) => {
     console.log("handleSubmitRecommendations");
@@ -87,6 +90,7 @@ export function Filter({ isOpen, onClose, childToParentData }) {
               value={category.id}
               className="category"
               onClick={handleCategories}
+              selected={filters?.categories.search(category.id) !== -1 && filters?.categories.search(category.id) !== undefined}
             />
           ))}
         </div>
@@ -100,6 +104,7 @@ export function Filter({ isOpen, onClose, childToParentData }) {
             value="movie"
             className="category"
             onClick={handleType}
+            selected={filters?.types === 'movie' || filters?.types ==='multi'}
           />
           <CheckedButton
             key="tv"
@@ -107,6 +112,7 @@ export function Filter({ isOpen, onClose, childToParentData }) {
             value="tv"
             className="category"
             onClick={handleType}
+            selected={filters?.types === 'tv' || filters?.types ==='multi'}
           />
         </div>
       </div>
@@ -139,7 +145,14 @@ export function Filter({ isOpen, onClose, childToParentData }) {
         className="clear-filters-button"
         variant="link"
         size="sm"
-        onClick={() => console.log("")}
+        onClick={() => {
+          selectedType=[];
+          selectedCategories=[];
+          setFilters(null);
+          categoriesString="";
+          typeString="";
+          childToParentData(null);
+        }}
       >
         Clear all filters
       </Button>

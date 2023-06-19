@@ -12,6 +12,7 @@ function AuthProvider({ children }) {
   const [isFetchingLogin, setIsFetchingLogin] = useState(false);
   const [isFetchingCreateUser, setIsFetchingCreateUser] = useState(false);
   const [hasTextInSearchField, setHasTextInSearchField] = useState(false);
+  const [filters, setFilters] = useState();
 
   const [loginError, setLoginError] = useState({ isError: false, message: "" });
   const [createError, setCreateError] = useState({
@@ -66,6 +67,8 @@ function AuthProvider({ children }) {
         loginError,
         createError,
         setCreateError,
+        filters,
+        setFilters
       }}
     >
       {children}
