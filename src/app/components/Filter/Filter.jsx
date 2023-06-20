@@ -5,6 +5,8 @@ import { categories } from "./utils/categories";
 import { CheckedButton } from "../CheckedButton/CheckedButton";
 import { useContext } from 'react';
 import { Context } from '../../context/AuthContext';
+import Api from "../../services/Api";
+import { useNavigate } from 'react-router-dom';
 
 export function Filter({ isOpen, onClose, childToParentData }) {
   let selectedCategories = [];
@@ -12,10 +14,7 @@ export function Filter({ isOpen, onClose, childToParentData }) {
   let categoriesString = "";
   let typeString = "";
   const { filters, setFilters } = useContext(Context);
-
-  const handleSubmitRecommendations = (e) => {
-    console.log("handleSubmitRecommendations");
-  };
+  const navigate = useNavigate();
 
   const handleSubmitFilters = () => {
     const actionIndex = selectedCategories.findIndex((e) => e === 28);
@@ -54,6 +53,26 @@ export function Filter({ isOpen, onClose, childToParentData }) {
 
     // console.log(selectedCategories);
   };
+
+  const redirectToRecommendations = () => {
+    Api.get("/search", {
+      params: {
+        page: 1,
+        type: typeString,
+        genre: categoriesString,
+      },
+      headers: {
+        Authorization: `Bearer ${JSON.parse(
+          localStorage.getItem("token")
+        )}`,
+      },
+    })
+      .then((res) => {
+        console.log(res.data.results);
+        navigate("/results", { state: res.data });
+      })
+      .catch((err) => console.log(err));
+  }
 
   const handleCategories = (category) => {
     selectedCategories.includes(category)
@@ -119,7 +138,11 @@ export function Filter({ isOpen, onClose, childToParentData }) {
       <div className="filter-buttons-wrapper">
         <Button
           className="button button-filter"
-          onClick={(e) => handleSubmitRecommendations(e)}
+          onClick={(e) => {
+            handleSubmitFilters();
+            redirectToRecommendations();
+            onClose();
+          }}
           variant="primary"
           type="button"
         >
