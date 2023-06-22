@@ -1,0 +1,9 @@
+label.checked-button.btn.btn-secondary {
+  background-color: #F7873D;
+  border-color: #F7873D;
+  font-size: 12px;
+}
+
+label.unchecked-button.btn.btn-secondary {
+  font-size: 12px;
+}

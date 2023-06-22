@@ -17,7 +17,7 @@ form.d-flex{
   min-width: 145px;
 }
 
-.filter-wrapper {
+.filter-wrapper-search {
   display: flex;
   > p {
     margin: auto;
@@ -28,7 +28,7 @@ form.d-flex{
   }
 }
 
-button.btn.btn-secondary:hover{
+button.btn.btn-secondary:hover, button.btn.test.btn-secondary{
   background-color: unset;
   > div > img, > div > p {
     filter: invert(34%) sepia(65%) saturate(850%) hue-rotate(320deg) brightness(105%) contrast(119%);
