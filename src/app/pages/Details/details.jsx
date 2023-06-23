@@ -4,11 +4,11 @@ import { useLocation } from 'react-router-dom';
 
 export function Details(){
   const { state } = useLocation();
-  const { name, backdrop_path, title } = state;
+  const { name, backdrop_path, title, contentName, contentId } = state;
 
   return (
     <Banner 
-      title={name || title}
+      title={name || title || contentName}
       image={`https://image.tmdb.org/t/p/original/${backdrop_path}`}/>
   );
 }
