@@ -1,10 +1,11 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Figure from 'react-bootstrap/Figure';
 import notFoundCover from '../../assets/noImage.svg';
 import './results.css';
 
 export function Results(){
   const { state } = useLocation();
+  const navigate = useNavigate();
 
   return(
     !state ?
@@ -12,7 +13,7 @@ export function Results(){
     :
     <div className='results-container'>
         {(state.results).map((item, index) => 
-            <Figure className='figure-results' key={index} onClick={() => console.log('Ok!')}>
+            <Figure className='figure-results' key={index} onClick={() => navigate('/details', {state: item})}>
                 <Figure.Image
                     alt={item?.original_title}
                     width={320}

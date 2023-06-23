@@ -37,6 +37,10 @@ img.contentList.figure-img.img-fluid, figure.big-slider-image.figure{
   width: 100%;
 }
 
+.big-slider-image {
+  cursor: pointer;
+}
+
 .text-big-slider {
   margin-top: 14px;
   margin-bottom: 14px;
