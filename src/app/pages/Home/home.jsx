@@ -15,6 +15,7 @@ export function Home(){
 
     useEffect(() => {
         getTop10()
+        getUserRecommendedContent()
         getListByStatus('watching')
         getListByStatus('myList')
         getListByStatus('watched')
@@ -30,6 +31,17 @@ export function Home(){
         })
         .then(res => setTop10Contents(res.data))
         .catch(err => console.log(err));
+    }
+
+    async function getUserRecommendedContent(){        
+      await Api.get('/userContent/recommendation',
+      {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
+        }
+      })
+      .then(res => setRecommendedContents(res.data))
+      .catch(err => console.log(err));
     }
 
     async function getListByStatus(contentStatus){        
@@ -57,12 +69,12 @@ export function Home(){
             break;
       }})
       .catch(err => console.log(err));
-  }
+    }
 
     return (
         <>
           <BigSlider type='Top 10 most watched' content={top10Contents}/>
-          <ContentSlider type='Recommended for you' content={top10Contents}/>
+          <ContentSlider type='Recommended for you' content={recommendedContents}/>
           <ContentSlider type='Watching' content={watchingContents}/>
           <ContentSlider type='My List' content={myList}/>
           <ContentSlider type='Watched' content={watchedContents}/>
