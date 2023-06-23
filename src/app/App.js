@@ -4,7 +4,6 @@ import './App.css';
 import { NavTop } from "../src/app/components/NavTop/NavTop";
 import { AuthProvider } from '../src/app/context/AuthContext';
 import RouterWrapper from '../src/app/router/Router';
-import './messaging_init_in_sw';
 import addNotification from 'react-push-notification';
 
 function App() {
