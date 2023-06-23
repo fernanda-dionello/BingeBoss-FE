@@ -34,7 +34,7 @@ export function ContentSlider(props){
             {props.content.length > 0 ? 
                 <Carousel responsive={responsive} className={decision(props.type)}>
                     {props.content.map((item, index) => 
-                        <Figure key={index} onClick={() => openDetails(item)}>
+                        <Figure className="content-slider-image" key={index} onClick={() => openDetails(item)}>
                             <Figure.Image
                                 alt={item?.original_title}
                                 src={`https://image.tmdb.org/t/p/w780/${item.backdrop_path}` || notFoundCover}

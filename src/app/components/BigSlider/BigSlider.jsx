@@ -8,8 +8,6 @@ import "react-multi-carousel/lib/styles.css";
 import { responsive } from '../../utils/responsive'
 
 export function BigSlider(props){
-    const [modalShow, setModalShow] = React.useState(false);
-    const [selectedContent, setSelectedContent] = React.useState({});
     const navigate = useNavigate();
 
     const decision = (type) => {
@@ -20,8 +18,8 @@ export function BigSlider(props){
         }
     }
 
-    const openDetails = () => {
-        navigate('/details', {state: selectedContent})
+    const openDetails = (item) => {
+        navigate('/details', {state: item})
     }
 
     return(
@@ -30,7 +28,7 @@ export function BigSlider(props){
             <Carousel responsive={responsive} className={decision(props.type)}>
                 {props.content.length > 0 && 
                     props.content.map((item, index) => 
-                    <Figure className="big-slider-image" key={index} onClick={() => openDetails()}>
+                    <Figure className="big-slider-image" key={index} onClick={() => openDetails(item)}>
                         <Figure.Image
                             width={171}
                             height={550}
