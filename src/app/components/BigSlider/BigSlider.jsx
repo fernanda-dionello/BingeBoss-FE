@@ -18,17 +18,13 @@ export function BigSlider(props){
         }
     }
 
-    const openDetails = (item) => {
-        navigate('/details', {state: item})
-    }
-
     return(
         <>
             <h2 className='text-big-slider'>{props.type}</h2>
             <Carousel responsive={responsive} className={decision(props.type)}>
                 {props.content.length > 0 && 
                     props.content.map((item, index) => 
-                    <Figure className="big-slider-image" key={index} onClick={() => openDetails(item)}>
+                    <Figure className="big-slider-image" key={index} onClick={() => navigate('/details', {state: item})}>
                         <Figure.Image
                             width={171}
                             height={550}

@@ -24,17 +24,13 @@ export function ContentSlider(props){
         }
     }
 
-    const openDetails = (item) => {
-        navigate('/details', {state: item})
-    }
-
     return(
         <>
             <h2 className='type-title'>{props.type}</h2>
             {props.content.length > 0 ? 
                 <Carousel responsive={responsive} className={decision(props.type)}>
                     {props.content.map((item, index) => 
-                        <Figure className="content-slider-image" key={index} onClick={() => openDetails(item)}>
+                        <Figure className="content-slider-image" key={index} onClick={() => navigate('/details', {state: item})}>
                             <Figure.Image
                                 alt={item?.original_title}
                                 src={`https://image.tmdb.org/t/p/w780/${item.backdrop_path}` || notFoundCover}

@@ -10,3 +10,7 @@
 figure.figure-results.figure {
   max-width: 345px;
 }
+
+.figure-results {
+  cursor: pointer;
+}
