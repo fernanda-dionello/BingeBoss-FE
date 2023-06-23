@@ -15,6 +15,10 @@ export function Home(){
 
     useEffect(() => {
         getTop10()
+        getListByStatus('watching')
+        getListByStatus('myList')
+        getListByStatus('watched')
+        getListByStatus('abandoned')
     }, [])
 
     async function getTop10(){        
@@ -27,6 +31,33 @@ export function Home(){
         .then(res => setTop10Contents(res.data))
         .catch(err => console.log(err));
     }
+
+    async function getListByStatus(contentStatus){        
+      await Api.get(`/userContent/status/${contentStatus}`,
+      {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
+        }
+      })
+      .then(res => {
+        switch (contentStatus) {
+          case 'myList':
+            setMyList(res.data)
+            break;
+          case 'watched':
+            setWatchedContents(res.data)
+            break;
+          case 'watching':
+            setWatchingContents(res.data)
+            break;
+          case 'abandoned':
+            setAbandonedContents(res.data)
+            break;
+          default:
+            break;
+      }})
+      .catch(err => console.log(err));
+  }
 
     return (
         <>
