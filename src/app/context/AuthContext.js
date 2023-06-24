@@ -2,6 +2,7 @@ import React, { createContext, useState } from "react";
 import Api from "../services/Api";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import addNotification from 'react-push-notification';
 
 const Context = createContext();
 
@@ -52,6 +53,17 @@ function AuthProvider({ children }) {
     const { uso_id } = jwt_decode(token);
     setAuthenticated(true);
     navigate("/home", { state: uso_id });
+
+    const clickTONotify = () => {
+      addNotification({
+          title: "Welcome Back!",
+          message: "You are the BingeBoss here!",
+          duration: 10000,
+          position: "top-right",
+          theme: "light"
+      })
+    }
+      clickTONotify();
   };
 
   return (
