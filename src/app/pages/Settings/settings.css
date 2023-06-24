@@ -1,0 +1,113 @@
+*{
+  font-family: Almarai, sans-serif;
+}
+
+.settings-container{
+  background-image: url('../../assets/settings-banner.svg');
+  display: flex;
+  align-self: center;
+  justify-content: space-around;
+  height: 89%;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+.settings-menu{
+  background: rgba(10, 1, 38, 0.82);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5.4727px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  height: 40%;
+}
+
+.settings-text {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.settings-spoiler-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+
+.settings-spoiler-text {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+input#custom-switch.form-check-input {
+  border: none;
+  height: 25px;
+  width: -webkit-fill-available;
+  box-shadow: none;
+}
+
+input#custom-switch.form-check-input:checked {
+  background-color: #F7873D;
+  border-color: #F7873D;
+  border: none;
+}
+
+button.settings-button.btn.btn-primary{
+  background-color: #fff3;
+  color: #EEE;
+  font-weight: 400;
+  border: none;
+  max-width: 80%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 1rem;
+}
+
+button.settings-button.btn.btn-primary:hover, button.settings-button.btn-primary:active {
+  background-color: #F7873D;
+  font-weight: 600;
+}
+
+#modal .modal-content .modal-body{
+  align-items: center;
+}
+
+.edit-btn, .delete-btn{
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 16px;  
+}
+
+.delete-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.delete-account-text {
+  font-size: 30px;
+  text-align: center;
+  margin: 0;
+}
+
+button.delete-btn.btn.btn-primary {
+  margin: 5% 0%;
+  max-width: 40%;
+  background-color: #fff3;;
+  border-color: #fff3;;
+  box-shadow: none;
+}
+
+button.delete-btn.btn.btn-primary:hover, button.delete-btn.btn.btn-primary:active {
+  background-color: #F7873D;
+  border-color: #F7873D;
+}

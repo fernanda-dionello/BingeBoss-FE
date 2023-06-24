@@ -12,11 +12,22 @@ function AuthProvider({ children }) {
   );
   const [isFetchingLogin, setIsFetchingLogin] = useState(false);
   const [isFetchingCreateUser, setIsFetchingCreateUser] = useState(false);
+  const [isFetchingUpdateUser, setIsFetchingUpdateUser] = useState(false);
   const [hasTextInSearchField, setHasTextInSearchField] = useState(false);
   const [filters, setFilters] = useState();
+  const [userId, setUserId] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [email, setEmail] = useState('');
+  const [spoilerProtection, setSpoilerProtection] = useState(false);
 
   const [loginError, setLoginError] = useState({ isError: false, message: "" });
   const [createError, setCreateError] = useState({
+    isError: false,
+    message: "",
+  });
+
+  const [updateError, setUpdateError] = useState({
     isError: false,
     message: "",
   });
@@ -50,9 +61,14 @@ function AuthProvider({ children }) {
   const handleRequest = (token) => {
     localStorage.setItem("token", JSON.stringify(token));
     Api.defaults.headers.Authorization = `Bearer ${token}`;
-    const { uso_id } = jwt_decode(token);
+    const { id, spoilerProtection, firstName, lastName, email } = jwt_decode(token);
     setAuthenticated(true);
-    navigate("/home", { state: uso_id });
+    setUserId(id);
+    setSpoilerProtection(spoilerProtection);
+    setFirstName(firstName);
+    setLastName(lastName);
+    setEmail(email);
+    navigate("/home", { state: id });
 
     const clickTONotify = () => {
       addNotification({
@@ -65,6 +81,37 @@ function AuthProvider({ children }) {
     }
       clickTONotify();
   };
+
+  async function handleUpdateUser({firstName, lastName, email, oldPassword, newPassword, confirmedPassword}){
+    setIsFetchingUpdateUser(true);
+    setUpdateError({ isError: false, message: ''});
+    let body = { firstName, lastName, email}
+
+    if(oldPassword !== ''){
+        body.oldPassword = oldPassword;
+    }
+
+    if(newPassword !== ''){
+      body.newPassword = newPassword;
+    }
+
+    if(confirmedPassword !== ''){
+      body.confirmedPassword = confirmedPassword;
+    }
+    
+    await Api.put(`/users/${userId}`, body, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
+      }
+    })
+    .then(res => {
+      setFirstName(res.data.firstName);
+      setLastName(res.data.lastName);
+      setEmail(res.data.email);
+    })
+    .catch(err => setUpdateError({ isError: true, message:  err.response.data.msg}))
+    .finally(() => setIsFetchingUpdateUser(false));
+  }
 
   return (
     <Context.Provider
@@ -80,7 +127,22 @@ function AuthProvider({ children }) {
         createError,
         setCreateError,
         filters,
-        setFilters
+        setFilters,
+        userId,
+        setAuthenticated,
+        spoilerProtection,
+        setSpoilerProtection,
+        updateError,
+        setUpdateError,
+        firstName,
+        setFirstName,
+        lastName,
+        setLastName,
+        email,
+        setEmail,
+        isFetchingUpdateUser,
+        setIsFetchingUpdateUser,
+        handleUpdateUser
       }}
     >
       {children}
