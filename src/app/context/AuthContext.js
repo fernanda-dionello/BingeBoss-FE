@@ -15,6 +15,7 @@ function AuthProvider({ children }) {
   const [hasTextInSearchField, setHasTextInSearchField] = useState(false);
   const [filters, setFilters] = useState();
   const [userId, setUserId] = useState('');
+  const [spoilerProtection, setSpoilerProtection] = useState(false);
 
   const [loginError, setLoginError] = useState({ isError: false, message: "" });
   const [createError, setCreateError] = useState({
@@ -51,9 +52,10 @@ function AuthProvider({ children }) {
   const handleRequest = (token) => {
     localStorage.setItem("token", JSON.stringify(token));
     Api.defaults.headers.Authorization = `Bearer ${token}`;
-    const { id } = jwt_decode(token);
+    const { id, spoilerProtection } = jwt_decode(token);
     setAuthenticated(true);
     setUserId(id);
+    setSpoilerProtection(spoilerProtection);
     navigate("/home", { state: id });
 
     const clickTONotify = () => {
@@ -84,7 +86,9 @@ function AuthProvider({ children }) {
         filters,
         setFilters,
         userId,
-        setAuthenticated
+        setAuthenticated,
+        spoilerProtection,
+        setSpoilerProtection
       }}
     >
       {children}

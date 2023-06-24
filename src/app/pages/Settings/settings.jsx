@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
@@ -8,11 +8,11 @@ import {Context} from '../../context/AuthContext';
 import './settings.css';
 
 export function Settings(){
+  const { userId, setAuthenticated, spoilerProtection, setSpoilerProtection } = useContext(Context);
   const navigate = useNavigate();
   const [ updateAccountModal, setUpdateAccountModal ] = useState(false);
-  const [checked, setChecked] = useState(false);
   const [modalShow, setModalShow] = useState(false);
-  const { userId, setAuthenticated } = useContext(Context);
+  const [checked, setChecked] = useState(spoilerProtection);
 
 
   const logout = () => {
@@ -33,6 +33,21 @@ export function Settings(){
         console.error(error);
     }        
   }
+
+  const putSpoilerProtection = async () => {
+      await Api.put(`/users/${userId}/spoiler/${checked}`, {
+          headers: {
+            Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
+          }
+      })
+      .then(res => setSpoilerProtection(res.data.spoilerProtection))
+      .catch(err => console.log(err));  
+  }
+
+  useEffect(() => {
+    putSpoilerProtection();
+  }, [checked])
+  
   return (
       <div className="settings-container">
         <div className='settings-menu'>
