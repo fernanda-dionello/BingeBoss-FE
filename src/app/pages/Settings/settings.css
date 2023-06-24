@@ -75,3 +75,39 @@ button.settings-button.btn.btn-primary:hover, button.settings-button.btn-primary
   background-color: #F7873D;
   font-weight: 600;
 }
+
+#modal .modal-content .modal-body{
+  align-items: center;
+}
+
+.edit-btn, .delete-btn{
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 16px;  
+}
+
+.delete-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.delete-account-text {
+  font-size: 30px;
+  text-align: center;
+  margin: 0;
+}
+
+button.delete-btn.btn.btn-primary {
+  margin: 5% 0%;
+  max-width: 40%;
+  background-color: #fff3;;
+  border-color: #fff3;;
+  box-shadow: none;
+}
+
+button.delete-btn.btn.btn-primary:hover, button.delete-btn.btn.btn-primary:active {
+  background-color: #F7873D;
+  border-color: #F7873D;
+}

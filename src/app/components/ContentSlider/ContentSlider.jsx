@@ -33,7 +33,7 @@ export function ContentSlider(props){
                         <Figure className="content-slider-image" key={index} onClick={() => navigate('/details', {state: item})}>
                             <Figure.Image
                                 alt={item?.original_title}
-                                src={`https://image.tmdb.org/t/p/w780/${item.backdrop_path}` || notFoundCover}
+                                src={item?.backdrop_path ? `https://image.tmdb.org/t/p/w780/${item?.backdrop_path}` : notFoundCover}
                                 className="contentList"
                             />
                         </Figure>
