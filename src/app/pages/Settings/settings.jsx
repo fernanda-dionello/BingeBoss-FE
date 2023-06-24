@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+import './settings.css';
 
 export function Settings(){
     const { state } = useLocation();
@@ -6,7 +7,8 @@ export function Settings(){
 
     return (
         <>
-          <p>{state?.oi}</p>  
+          <div className="settings-container">
+          </div> 
         </>
     )
 }
