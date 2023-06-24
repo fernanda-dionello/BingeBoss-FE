@@ -84,7 +84,6 @@ export function Search() {
   }, [searchContent]);
 
   useEffect(() => {
-    console.log("pathname", window.location.pathname);
     if (window.location.pathname === "/results" && search === "") {
       navigate("/home");
     }

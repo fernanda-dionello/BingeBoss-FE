@@ -1,0 +1,90 @@
+* {
+  font-family: Almarai, sans-serif;
+  color: #EEE;
+}
+
+.content-basic-info-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  justify-content: space-between;
+  column-gap: 30px;
+  row-gap: 30px;
+  margin: 15px 25px;
+}
+
+.channel-name{
+  color: #EEE;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.channel-wrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 15px;
+  /* width: fit-content; */
+  margin: 10px;
+}
+
+.content-date{
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.genres-wrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 15px;
+}
+
+.content-genres{
+  background-color: rgba(238, 238, 238, 0.3);
+  border-radius: 18px;
+  padding: 1px 15px;
+  margin-bottom: 0;
+}
+
+.content-basic-info-wrapper-left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.content-basic-info-wrapper-right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 10px;
+  font-weight: 600;
+
+  >p{
+    margin-bottom: 0;
+  }
+}
+
+.star-rating{
+  height: 24px;
+}
+
+.first-line{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 30px;
+  width: 100%;
+}
+
+.second-line{
+  font-weight: 400;
+  text-align: left;
+  padding-left: 10px;
+}

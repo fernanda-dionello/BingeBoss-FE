@@ -21,21 +21,24 @@ export function BigSlider(props){
     return(
         <>
             <h2 className='text-big-slider'>{props.type}</h2>
-            <Carousel responsive={responsive} className={decision(props.type)}>
-                {props.content.length > 0 && 
-                    props.content.map((item, index) => 
-                    <Figure className="big-slider-image" key={index} onClick={() => navigate('/details', {state: item})}>
-                        <Figure.Image
-                            width={171}
-                            height={550}
-                            alt={item?.original_title}
-                            src={`https://image.tmdb.org/t/p/h632/${item.poster_path}` || notFoundCover}
-                            className="contentList"
-                        />
-                    </Figure>
-                )
+                {props.content.length > 0 ? 
+                    <Carousel responsive={responsive} className={decision(props.type)}>
+                        {props.content.map((item, index) => 
+                            <Figure className="big-slider-image" key={index} onClick={() => navigate('/details', {state: item})}>
+                                <Figure.Image
+                                    width={171}
+                                    height={550}
+                                    alt={item?.original_title}
+                                    src={`https://image.tmdb.org/t/p/h632/${item.poster_path}` || notFoundCover}
+                                    className="contentList"
+                                />
+                            </Figure>
+                            )
+                        }
+                    </Carousel>
+                    :
+                    <div className='empty-carousel'/>
                 }
-            </Carousel>
         </>
     )
 }
