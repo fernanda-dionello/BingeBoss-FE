@@ -22,7 +22,7 @@ export function Home(){
     }, [])
 
     async function getTop10(){        
-        await Api.get('/trending?type=all&language=pt-BR',
+        await Api.get('/trending?type=all',
         {
           headers: {
             Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
@@ -66,13 +66,7 @@ export function Home(){
           <ContentSlider type='Watching' content={watchingContents}/>
           <ContentSlider type='My List' content={myList}/>
           <ContentSlider type='Watched' content={watchedContents}/>
-          <ContentSlider type='Abandoned' content={abandonedContents}/>
-
-          
-          {/* <ContentSlider type='Lendo' books={readingBooks} onDelete={() => getReadingBooks()}/>
-          <ContentSlider type='Quero Ler' books={wantToReadBooks} onDelete={() => getWantsToReadBooks()}/>
-          <ContentSlider type='Lidos' books={readBooks} onDelete={() => getReadBooks()}/> */}
-          
+          <ContentSlider type='Abandoned' content={abandonedContents}/>          
         </>
     )
 }
