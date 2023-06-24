@@ -1,3 +1,7 @@
+*{
+  font-family: Almarai, sans-serif;
+}
+
 .settings-container{
   background-image: url('../../assets/settings-banner.svg');
   display: flex;
@@ -8,4 +12,37 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
+}
+
+.settings-menu{
+  background: rgba(10, 1, 38, 0.82);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5.4727px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 40%;
+}
+.settings-text {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+button.settings-button.btn.btn-primary{
+  background-color: #fff3;
+  color: #EEE;
+  font-weight: 400;
+  border: none;
+  max-width: 80%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 1rem;
+}
+
+button.settings-button.btn.btn-primary:hover, button.settings-button.btn-primary:active {
+  background-color: #F7873D;
+  font-weight: 600;
 }
