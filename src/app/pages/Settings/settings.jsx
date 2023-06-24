@@ -6,6 +6,7 @@ import { ModalElement } from '../../components/Modal/ModalElement';
 import Api from "../../services/Api";
 import {Context} from '../../context/AuthContext';
 import './settings.css';
+import { UpdateUser } from '../../components/UpdateUser/UpdateUser';
 
 export function Settings(){
   const { userId, setAuthenticated, spoilerProtection, setSpoilerProtection } = useContext(Context);
@@ -13,7 +14,6 @@ export function Settings(){
   const [ updateAccountModal, setUpdateAccountModal ] = useState(false);
   const [modalShow, setModalShow] = useState(false);
   const [checked, setChecked] = useState(spoilerProtection);
-
 
   const logout = () => {
     navigate('/');
@@ -47,7 +47,7 @@ export function Settings(){
   useEffect(() => {
     putSpoilerProtection();
   }, [checked])
-  
+
   return (
       <div className="settings-container">
         <div className='settings-menu'>
@@ -80,7 +80,7 @@ export function Settings(){
                 <Button className='delete-btn' onClick={() => deleteAccount()}>YES</Button>
             </div>
         </ModalElement>
-        {/* <UpdateUser isOpen={updateAccountModal} onClose={() => setUpdateAccountModal(false)}/> */}
+        <UpdateUser isOpen={updateAccountModal} onClose={() => setUpdateAccountModal(false)}/>
       </div> 
   )
 }
