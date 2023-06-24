@@ -22,14 +22,43 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40%;
+  width: 35%;
   height: 40%;
 }
+
 .settings-text {
   margin: 0;
   padding: 0;
   padding-bottom: 20px;
   text-align: center;
+}
+
+.settings-spoiler-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+
+.settings-spoiler-text {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+input#custom-switch.form-check-input {
+  border: none;
+  height: 25px;
+  width: -webkit-fill-available;
+  box-shadow: none;
+}
+
+input#custom-switch.form-check-input:checked {
+  background-color: #F7873D;
+  border-color: #F7873D;
+  border: none;
 }
 
 button.settings-button.btn.btn-primary{
