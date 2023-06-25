@@ -72,8 +72,8 @@ export function Profile(){
           <div className='total-consumption-box'>
             <span className='total-consumption-box-title'>Total of hours</span>
             <div className='hours-container'>
-              {getTotalOfHours().map((item) => 
-                <div className='hours-item'>
+              {getTotalOfHours().map((item, index) => 
+                <div className='hours-item' key={index}>
                   <span className='hours-item-value'>{item.value}</span>
                   <span className='hours-item-type'>{item.type}</span>
                 </div>
