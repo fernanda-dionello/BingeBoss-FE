@@ -75,6 +75,21 @@ export function ContentDetails(props) {
       .catch((err) => console.log(err));
   };
 
+  const handleCheckAllSeason = async () => {
+    await Api.post(`/userContent/${props.id ?? props.contentId}`, {}, {
+      params: {
+        status:"watched",
+        type:"season",
+        seasonNumber: season,
+      },
+      headers: {
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      },
+    })
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  }
+
   return (
     <div className="content-details-wrapper">
       <div className="content-details-header">
@@ -84,6 +99,7 @@ export function ContentDetails(props) {
             className="mark-season-watched-button"
             variant="link"
             size="sm"
+            onClick={() => handleCheckAllSeason()}
           >
             Mark season as watched
           </Button>
