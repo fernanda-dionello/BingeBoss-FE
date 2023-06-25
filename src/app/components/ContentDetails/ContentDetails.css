@@ -52,6 +52,11 @@ button.mark-season-watched-button.btn.btn-link:active {
   filter: invert(34%) sepia(65%) saturate(850%) hue-rotate(320deg) brightness(105%) contrast(119%);
 }
 
+.mark-watched{
+  height: 35px;
+  filter: invert(34%) sepia(65%) saturate(850%) hue-rotate(320deg) brightness(105%) contrast(119%);
+}
+
 .episode-number {
   font-size: 30px;
   font-weight: 600;
@@ -66,6 +71,7 @@ button.mark-season-watched-button.btn.btn-link:active {
   flex-direction: column;
   align-items: flex-start;  
   row-gap: 5px;
+  width: 100%;
   > p {
     text-align: left;
     margin-bottom: 0px;
@@ -91,4 +97,6 @@ button.comment-button.btn:active {
   display: flex;
   align-items: center;
   column-gap: 20px;
+  width: 100%;
+  justify-content: space-between;
 }

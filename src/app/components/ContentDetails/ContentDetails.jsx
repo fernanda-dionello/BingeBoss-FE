@@ -9,9 +9,18 @@ import { Comments } from "../Comments/Comments";
 export function ContentDetails(props) {
   const [episodes, setEpisodes] = useState();
   const [season, setSeason] = useState("1");
-  const [openComments, setOpenComments] = useState(false);
   const [commentsStates, setCommentsStates] = useState({});
-  const [watchedContents, setWatchedContents] = useState();
+  const [watchedContents, setWatchedContents] = useState([]);
+
+  const getWatchedData = async () => {
+    await Api.get(`/userContent/${props.id || props.contentId}/watched/${season}`, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      },
+    })
+      .then((res) => setWatchedContents(res.data))
+      .catch((err) => console.log(err));
+  };
 
   useEffect(() => {
     const getSeasonData = async () => {
@@ -26,32 +35,14 @@ export function ContentDetails(props) {
       })
         .then((res) => {
           setEpisodes(res.data.episodes);
-          console.log('episodes', res.data.episodes);
         })
         .catch((err) => console.log(err));
     };
     getSeasonData();
-
-    // const getWatchedData = async () => {
-    //   await Api.get(`/userContent/${props.id || props.contentId}`, {
-    //     params: {
-    //       type: "season",
-    //       seasonNumber: season,
-    //     },
-    //     headers: {
-    //       Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
-    //     },
-    //   })
-    //     .then((res) => setEpisodes(res.data.episodes))
-    //     .catch((err) => console.log(err));
-    // };
-    // getWatchedData();
-
-
+    getWatchedData();
   }, [season]);
 
   const optionSelected = (item) => {
-    console.log("item", item);
     setSeason(item.split(" ")[1]);
   };
 
@@ -63,19 +54,34 @@ export function ContentDetails(props) {
   };
 
   const handleEpisodeClick = async (episodeId) => {
-    await Api.post(`/userContent/${props.id ?? props.contentId}`, {}, {
-      params: {
-        status:"watched",
-        type:"episode",
-        seasonNumber: season,
-        episodeNumber: episodeId
-      },
-      headers: {
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
-      },
-    })
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
+    if(watchedContents.includes(episodeId)){
+      await Api.delete(`/userContent/${props.id ?? props.contentId}`, {
+        params: {
+          type:"episode",
+          seasonNumber: season,
+          episodeNumber: episodeId
+        },
+        headers: {
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        },
+      })
+        .then((res) => getWatchedData())
+        .catch((err) => console.log(err));
+    } else {
+      await Api.post(`/userContent/${props.id ?? props.contentId}`, {}, {
+        params: {
+          status:"watched",
+          type:"episode",
+          seasonNumber: season,
+          episodeNumber: episodeId
+        },
+        headers: {
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        },
+      })
+        .then((res) => res.data)
+        .catch((err) => console.log(err));
+    }
   };
 
   const handleCheckAllSeason = async () => {
@@ -89,8 +95,18 @@ export function ContentDetails(props) {
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
       },
     })
-      .then((res) => console.log(res.data))
+      .then((res) => getWatchedData())
       .catch((err) => console.log(err));
+  }
+
+  const handleWatchedButton = (episode) => {
+    if(watchedContents.length === 0){
+      return 'checkmark-button'
+    }
+    if(watchedContents.includes(episode)){
+      return 'mark-watched'
+    }
+    return 'checkmark-button'
   }
 
   return (
@@ -136,7 +152,7 @@ export function ContentDetails(props) {
               </div>
               <Button variant="link" onClick={() => handleEpisodeClick(item.episode_number)}>
                 <img
-                  className="checkmark-button"
+                  className={handleWatchedButton(item.episode_number)}
                   src={checkMark}
                   alt={`checkMark episode ${item.episode_number}`}
                 />
