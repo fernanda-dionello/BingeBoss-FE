@@ -1,3 +1,7 @@
+*{
+  font-family: Almarai, sans-serif;
+}
+
 .banner-title {
   background: rgba(10, 1, 38, 0.82);
   margin-bottom: 20px;
