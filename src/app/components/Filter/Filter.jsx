@@ -51,7 +51,6 @@ export function Filter({ isOpen, onClose, childToParentData }) {
       },
     })
       .then((res) => {
-        console.log(res.data.results);
         navigate("/results", { state: res.data });
       })
       .catch((err) => console.log(err));

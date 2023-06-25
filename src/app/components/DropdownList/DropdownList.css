@@ -1,0 +1,9 @@
+button.dropdown-list-toggle.btn.btn-primary{
+    background-color: rgba(238, 238, 238, 0.3) !important;
+    border-color: rgba(238, 238, 238, 0.3);
+    font-size: 15px;
+}
+
+button#dropdown-list-basic-button.dropdown-toggle.btn.btn-primary{
+    font-size: 17px;
+}
