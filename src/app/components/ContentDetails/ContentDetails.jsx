@@ -24,28 +24,31 @@ export function ContentDetails(props) {
           Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
         },
       })
-        .then((res) => setEpisodes(res.data.episodes))
+        .then((res) => {
+          setEpisodes(res.data.episodes);
+          console.log('episodes', res.data.episodes);
+        })
         .catch((err) => console.log(err));
     };
     getSeasonData();
 
-    const getWatchedData = async () => {
-      await Api.get(`/userContent/${props.id || props.contentId}`, {
-        params: {
-          type: "season",
-          seasonNumber: season,
-        },
-        headers: {
-          Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
-        },
-      })
-        .then((res) => setEpisodes(res.data.episodes))
-        .catch((err) => console.log(err));
-    };
-    getSeasonData();
+    // const getWatchedData = async () => {
+    //   await Api.get(`/userContent/${props.id || props.contentId}`, {
+    //     params: {
+    //       type: "season",
+    //       seasonNumber: season,
+    //     },
+    //     headers: {
+    //       Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+    //     },
+    //   })
+    //     .then((res) => setEpisodes(res.data.episodes))
+    //     .catch((err) => console.log(err));
+    // };
+    // getWatchedData();
 
 
-  }, [setSeason]);
+  }, [season]);
 
   const optionSelected = (item) => {
     console.log("item", item);

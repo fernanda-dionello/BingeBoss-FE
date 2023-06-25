@@ -5,7 +5,8 @@ import { useLocation } from "react-router-dom";
 import Api from "../../services/Api";
 import { ContentBasicInfo } from "../../components/ContentBasicInfo/ContentBasicInfo";
 import { CastSlider } from "../../components/CastSlider/CastSlider";
-import { ContentDetails } from '../../components/ContentDetails/ContentDetails';
+import { ContentDetails } from "../../components/ContentDetails/ContentDetails";
+import { Comments } from '../../components/Comments/Comments';
 
 export function Details() {
   const { state } = useLocation();
@@ -65,9 +66,21 @@ export function Details() {
       {contentDetails?.credits?.cast.length > 0 && (
         <CastSlider content={contentDetails?.credits?.cast} />
       )}
-      {
-        media_type === 'tv' || contentType === 'tv' ? <ContentDetails id={id} contentId={contentId} number_of_seasons={contentDetails?.number_of_seasons} /> : <div></div>
-      }
+      {media_type === "tv" || contentType === "tv" ? (
+        <ContentDetails
+          id={id}
+          contentId={contentId}
+          number_of_seasons={contentDetails?.number_of_seasons}
+        />
+      ) : (
+        <div className='write-comment-movie'>
+          <p className='write-a-comment'>Write a comment</p>
+          <Comments
+            id={id ?? contentId}
+            type="movie"
+          />
+        </div>
+      )}
     </>
   );
 }

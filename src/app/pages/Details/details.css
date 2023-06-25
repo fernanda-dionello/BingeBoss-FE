@@ -1,0 +1,12 @@
+.write-a-comment{
+  font-size: 24px;
+  font-weight: 600;
+  color: #EEE;
+  margin: 0px 50px;
+  text-align: left;
+}
+
+.write-comment-movie{
+  display: flex;
+  flex-direction: column;
+}

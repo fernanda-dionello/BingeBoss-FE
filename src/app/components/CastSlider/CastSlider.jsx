@@ -7,7 +7,6 @@ import "react-multi-carousel/lib/styles.css";
 import { responsiveCast } from '../../utils/responsive';
 
 export function CastSlider(props){
-  console.log('props', props);
     return(
         <div className='cast-slider-wrapper'>
             <h2 className='cast-title'>Cast</h2>
@@ -28,7 +27,7 @@ export function CastSlider(props){
                     }
                 </Carousel>
                 :
-                <div className='empty-carousel'/>
+                <div key="empty-carousel" className='empty-carousel'/>
             }
         </div>
     )
