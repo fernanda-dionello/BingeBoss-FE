@@ -22,8 +22,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 35%;
-  height: 40%;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
 }
 
 .settings-text {
@@ -53,6 +54,7 @@ input#custom-switch.form-check-input {
   height: 25px;
   width: -webkit-fill-available;
   box-shadow: none;
+  cursor: pointer;
 }
 
 input#custom-switch.form-check-input:checked {

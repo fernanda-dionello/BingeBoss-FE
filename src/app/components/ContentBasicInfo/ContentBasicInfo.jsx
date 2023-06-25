@@ -108,7 +108,7 @@ export function ContentBasicInfo(props) {
         </div>
       </div>
       <div className="second-line">
-        <p>{props.overview}</p>
+        <p>{props.overview === "" ? "No description available." : props.overview}</p>
       </div>
       <div className="third-line">
         <ButtonList

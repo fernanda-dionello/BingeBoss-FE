@@ -64,6 +64,7 @@ button.mark-season-watched-button.btn.btn-link:active {
 
 .episode-image {
   border-radius: 8px;
+  max-width: 300px;
 }
 
 .episode-info-wrapper {
@@ -99,4 +100,24 @@ button.comment-button.btn:active {
   column-gap: 20px;
   width: 100%;
   justify-content: space-between;
+}
+
+button.show-description-button{
+  color: #EEE;
+  font-size: 16px;
+  padding-left: 2px;
+}
+
+button.show-description-button:hover, button.show-description-button.btn:active {
+  color: #f7873d;
+}
+
+.spoiler-protection-wrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  >p{
+    margin-bottom: 0px;
+  }
 }
