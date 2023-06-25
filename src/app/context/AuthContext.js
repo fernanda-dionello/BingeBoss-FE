@@ -60,6 +60,7 @@ function AuthProvider({ children }) {
 
   const handleRequest = (token) => {
     localStorage.setItem("token", JSON.stringify(token));
+    sessionStorage.setItem("token", JSON.stringify(token));
     Api.defaults.headers.Authorization = `Bearer ${token}`;
     const { id, spoilerProtection, firstName, lastName, email } = jwt_decode(token);
     setAuthenticated(true);
@@ -135,11 +136,8 @@ function AuthProvider({ children }) {
         updateError,
         setUpdateError,
         firstName,
-        setFirstName,
         lastName,
-        setLastName,
         email,
-        setEmail,
         isFetchingUpdateUser,
         setIsFetchingUpdateUser,
         handleUpdateUser

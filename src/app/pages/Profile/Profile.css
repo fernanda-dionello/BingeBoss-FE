@@ -1,0 +1,105 @@
+*{
+  font-family: Almarai, sans-serif;
+}
+
+.profile-container{
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.profile-welcome-text {
+  font-size: 40px;
+  margin-top: 35px;
+  text-align: center;
+  color: #EEE;
+}
+
+.profile-welcome-name {
+  color: #F7873D;
+}
+
+.profile-consumption-container {
+  display: flex;
+  align-self: center;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: fit-content;
+  width: 100%;
+  padding: 3%;
+}
+
+.total-consumption-box {
+  color: #F7873D;
+  background-color: #fff3;
+  border-color: #FFF;
+  width: 30%;
+  font-size: 53px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+}
+
+.total-consumption-box-title {
+  font-size: 27px;
+  color: #EEE;
+}
+
+.hours-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  justify-content: space-evenly;
+}
+
+.hours-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.hours-item-value {
+  color: #F7873D;
+}
+
+.hours-item-type {
+  color: #EEE;
+  font-size: 22px;
+}
+
+.list-container {
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 20px;
+}
+
+.list-header-title {
+  font-size: 30px;
+}
+
+.list-header-dropdown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 20%;
+  justify-content: flex-end;
+  column-gap: 15px;
+}
+
+.results-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}

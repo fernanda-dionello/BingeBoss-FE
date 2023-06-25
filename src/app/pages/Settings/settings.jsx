@@ -18,6 +18,7 @@ export function Settings(){
   const logout = () => {
     navigate('/');
     localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
     setAuthenticated(false);
   }
 
