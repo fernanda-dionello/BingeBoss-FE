@@ -41,7 +41,7 @@ function AuthProvider({ children }) {
     await Api.post("/login", { email, password })
       .then((res) => handleRequest(res.data.token))
       .catch((err) =>
-        setLoginError({ isError: true, message: err.response.data.msg })
+        setLoginError({ isError: true, message: err.response.data })
       )
       .finally(() => setIsFetchingLogin(false));
   }
@@ -53,7 +53,7 @@ function AuthProvider({ children }) {
     await Api.post("/users", { firstName, lastName, email, password })
       .then((res) => handleLogin(email, password))
       .catch((err) =>
-        setCreateError({ isError: true, message: err.response.data.msg })
+        setCreateError({ isError: true, message: err.response.data })
       )
       .finally(() => setIsFetchingCreateUser(false));
   }
@@ -109,7 +109,7 @@ function AuthProvider({ children }) {
       setLastName(res.data.lastName);
       setEmail(res.data.email);
     })
-    .catch(err => setUpdateError({ isError: true, message:  err.response.data.msg}))
+    .catch(err => setUpdateError({ isError: true, message:  err.response.data}))
     .finally(() => setIsFetchingUpdateUser(false));
   }
 
