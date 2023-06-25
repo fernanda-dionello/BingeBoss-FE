@@ -77,8 +77,8 @@ export function Settings(){
         >
             <h2 className='delete-account-text'>Are you sure you want to delete your account?</h2>
             <div className='delete-buttons'>
-                <Button className='delete-btn' onClick={() => setModalShow(false)}>NO</Button>
-                <Button className='delete-btn' onClick={() => deleteAccount()}>YES</Button>
+                <Button className='delete-btn' onClick={() => deleteAccount()}>Yes</Button>
+                <Button className='delete-btn' onClick={() => setModalShow(false)}>No</Button>
             </div>
         </ModalElement>
         <UpdateUser isOpen={updateAccountModal} onClose={() => setUpdateAccountModal(false)}/>
