@@ -47,14 +47,14 @@ export function UpdateUser({ isOpen, onClose }) {
 
     return (
         <ModalElement
-            size='lg'
+            size='md'
             show={isOpen}
             onHide={() => onClose()}
             id="modal"
         >
             <h2 className='update-account-text'>Update your account</h2>
             <Form ref={formEditUserRef} validated={validated} id="form">
-                <Form.Group className="mb-3" controlId="formBasicName">
+                <Form.Group className="mb-1" controlId="formBasicName">
                     <Form.Label>First Name</Form.Label>
                     <InputGroup hasValidation>
                         <Form.Control defaultValue={currentFirstName} onTouchStart={() => setFirstNameTouched(true)} onChange={(e) => setFirstName(e.target.value)} type="text" isInvalid={firstNameTouched && !firstName}/>
@@ -64,7 +64,7 @@ export function UpdateUser({ isOpen, onClose }) {
                     </InputGroup>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicName">
+                <Form.Group className="mb-1" controlId="formBasicName">
                     <Form.Label>Last Name</Form.Label>
                     <InputGroup hasValidation>
                         <Form.Control defaultValue={currentLastName} onTouchStart={() => setLastNameTouched(true)} onChange={(e) => setLastName(e.target.value)} type="text" isInvalid={lastNameTouched && !lastName}/>
@@ -74,7 +74,7 @@ export function UpdateUser({ isOpen, onClose }) {
                     </InputGroup>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-1" controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>
                     <InputGroup hasValidation>
                         <Form.Control defaultValue={currentEmail} onTouchStart={() => setEmailTouched(true)} onChange={(e) => setEmail(e.target.value)} type="email" isInvalid={emailTouched && !email}/>
@@ -86,7 +86,7 @@ export function UpdateUser({ isOpen, onClose }) {
 
                 <p className='form-p-instruction'>*Only fill in the fields below if you want to change your password</p>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-1" controlId="formBasicPassword">
                     <Form.Label>Old Password</Form.Label>
                     <InputGroup hasValidation>
                         <Form.Control onTouchStart={() => setOldPasswordTouched(true)} onChange={(e) => setOldPassword(e.target.value)} type="password" isInvalid={oldPasswordTouched && !oldPassword}/>
@@ -96,7 +96,7 @@ export function UpdateUser({ isOpen, onClose }) {
                     </InputGroup>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-1" controlId="formBasicPassword">
                     <Form.Label>New Password</Form.Label>
                     <InputGroup hasValidation>
                         <Form.Control onTouchStart={() => setNewPasswordTouched(true)} onChange={(e) => setNewPassword(e.target.value)} type="password" isInvalid={newPasswordTouched && !newPassword}/>
@@ -106,7 +106,7 @@ export function UpdateUser({ isOpen, onClose }) {
                     </InputGroup>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-1" controlId="formBasicPassword">
                     <Form.Label>Confirmed Password</Form.Label>
                     <InputGroup hasValidation>
                         <Form.Control onTouchStart={() => setConfirmedPasswordTouched(true)} onChange={(e) => setConfirmedPassword(e.target.value)} type="password" isInvalid={confirmedPasswordTouched && !confirmedPassword}/>
