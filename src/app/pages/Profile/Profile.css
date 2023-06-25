@@ -5,7 +5,8 @@
 .profile-container{
   display: flex;
   align-self: center;
-  justify-content: space-around;
+  justify-content: center;
+  flex-direction: column;
   height: 100%;
 }
 
@@ -18,4 +19,52 @@
 
 .profile-welcome-name {
   color: #F7873D;
+}
+
+.profile-consumption-container {
+  display: flex;
+  align-self: center;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  padding: 5%;
+}
+
+.total-consumption-box {
+  color: #F7873D;
+  background-color: #fff3;
+  border-color: #FFF;
+  width: 30%;
+  font-size: 53px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+}
+
+.total-consumption-box-title {
+  font-size: 27px;
+  color: #EEE;
+}
+
+.hours-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  justify-content: space-evenly;
+}
+
+.hours-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.hours-item-value {
+  color: #F7873D;
+}
+
+.hours-item-type {
+  color: #EEE;
+  font-size: 22px;
 }
