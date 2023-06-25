@@ -99,7 +99,7 @@ button.rating-button{
   color: #EEE;
 }
 
-button.rating-button:hover{
+button.rating-button:hover, button.rating-button.btn:active{
   color: #F7873D;
   > img.rating-button-icon {
     filter: invert(34%) sepia(65%) saturate(850%) hue-rotate(320deg) brightness(105%) contrast(119%);

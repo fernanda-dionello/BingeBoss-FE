@@ -1,0 +1,51 @@
+* {
+  font-family: 'Nunito', sans-serif;
+  /* color: #3E3F43; */
+}
+
+.cast-image.figure-img.img-fluid{
+width: auto;
+height: auto;
+border-radius: 8px;
+height: 200px;
+}
+
+.empty-carousel {
+  height: 237.5px;
+  background-color: #3e3f4375;
+}
+
+.cast-title {
+  margin-top: 14px;
+  margin-bottom: 14px;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-left: 33px;
+  margin-top: 20px;
+  text-align: left;
+  color: #EEE;
+}
+
+.figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.figure-caption{
+  text-align: center;
+  font-weight: 600;
+}
+
+.cast-slider-wrapper{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+

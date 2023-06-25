@@ -13,7 +13,7 @@ button.button-item{
   text-decoration: none;
 }
 
-button.button-item:hover{
+button.button-item:hover, button.button-item.btn:active{
   color: #F7873D;
 }
 

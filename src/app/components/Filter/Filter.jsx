@@ -35,23 +35,6 @@ export function Filter({ isOpen, onClose, childToParentData }) {
       selectedType.length === 2 || selectedType.length === 0
         ? "multi"
         : selectedType[0];
-
-    // await Api.get('/search',
-    // {
-    //   params:{
-    //     title: title,
-    //     page: 1,
-    //     type: type,
-    //     genre: categories
-    //   },
-    //   headers: {
-    //     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
-    //   }
-    // })
-    // .then(res => console.log(res.data.results))
-    // .catch(err => console.log(err));
-
-    // console.log(selectedCategories);
   };
 
   const redirectToRecommendations = () => {

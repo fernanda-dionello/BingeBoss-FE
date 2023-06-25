@@ -6,7 +6,7 @@ export function ButtonList(props){
     <div className='button-list'>
       {
         props.list.map(item => 
-          <Button className='button-item' variant="link" size="sm">
+          <Button key={item.name} className='button-item' variant="link" size="sm">
             <img className='button-icon' src={item.image} alt={item.name} />
             {item.name}
           </Button>

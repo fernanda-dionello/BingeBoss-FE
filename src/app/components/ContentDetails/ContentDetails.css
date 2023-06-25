@@ -1,0 +1,94 @@
+.content-details-header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+button.mark-season-watched-button {
+  color: #eee;
+}
+
+button.mark-season-watched-button:hover,
+button.mark-season-watched-button.btn.btn-link:active {
+  color: #f7873d;
+}
+
+.episodes {
+  padding-left: 10px;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+
+.content-details-wrapper {
+  margin: 35px 25px;
+}
+
+.dropdown-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.content-episodes-wrapper {
+  border-radius: 2px;
+  border: 0.5px solid rgba(238, 238, 238, 0.3);
+  background: rgba(238, 238, 238, 0.3);
+  margin: 0px 0px 15px 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  row-gap: 20px;
+}
+
+.checkmark-button {
+  height: 35px;
+}
+
+.checkmark-button:hover, .checkmark-button:active{
+  filter: invert(34%) sepia(65%) saturate(850%) hue-rotate(320deg) brightness(105%) contrast(119%);
+}
+
+.episode-number {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.episode-image {
+  border-radius: 8px;
+}
+
+.episode-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  
+  row-gap: 5px;
+  > p {
+    text-align: left;
+    margin-bottom: 0px;
+  }
+  > p:first-child {
+    font-weight: 600;
+    padding-bottom: 5px;
+  }
+
+  > p:nth-child(2) {
+    font-size: 14px;
+  }
+}
+
+button.comment-button.btn,
+button.comment-button.btn:hover,
+button.comment-button.btn:active {
+  color: #f7873d;
+  padding-left: 0px;
+}
+
+.content-episodes-details{
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
