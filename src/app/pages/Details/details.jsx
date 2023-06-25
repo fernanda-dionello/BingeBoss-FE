@@ -39,7 +39,6 @@ export function Details() {
   }, []);
 
   useEffect(() => {
-    console.log(contentDetails);
   }, [contentDetails]);
 
   return (

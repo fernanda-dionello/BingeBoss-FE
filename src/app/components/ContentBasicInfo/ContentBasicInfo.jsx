@@ -7,11 +7,19 @@ import abandoned from "../../assets/package-box.svg";
 import rating from "../../assets/rating.svg";
 import { ButtonList } from "../ButtonList/ButtonList";
 import Button from "react-bootstrap/Button";
+import { useEffect, useState } from "react";
+import { ModalElement } from "../Modal/ModalElement";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+import Api from '../../services/Api';
 
 export function ContentBasicInfo(props) {
   const startedYear = props.first_air_date?.split("-")[0] ?? "";
   const endYear = props.last_air_date?.split("-")[0] ?? "";
   const releaseDate = props.release_date?.split("-")[0] ?? "";
+  const [ratingModal, setRatingModal] = useState(false);
+  const [selectedButton, setSelectedButton] = useState(null);
+  const ratingRange = [];
 
   const buttonList = [
     { name: "Add to my list", image: mylist, type: "myList" },
@@ -19,6 +27,56 @@ export function ContentBasicInfo(props) {
     { name: "Watched", image: watched, type: "watched" },
     { name: "Abandoned", image: abandoned, type: "abandoned" },
   ];
+
+  const saveVote = async(grade) => {
+    await Api.post(`/userContent/${props.id ?? props.contentId}/rating/${grade}`, {}, {
+      params: {
+        type:props.media_type ?? props.contentType,
+      },
+      headers: {
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      },
+    })
+      .then((res) => getVote())
+      .catch((err) => console.log(err));
+  }
+
+  const getVote = async() => {
+    await Api.get(`/userContent/${props.id ?? props.contentId}/rating`, {
+      params: {
+        type:props.media_type ?? props.contentType,
+      },
+      headers: {
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      },
+    })
+      .then((res) => setSelectedButton(res.data.rating))
+      .catch((err) => console.log(err));
+  }
+
+  useEffect(() => {
+    getVote();
+  }, [])
+
+  for (let i = 1; i <= 10; i++) {
+    ratingRange.push(
+      <Button
+        key={i}
+        size="sm"
+        className={
+          selectedButton === i
+            ? "rating-button-vote-selected"
+            : "rating-button-vote"
+        }
+        onClick={() => {
+          setSelectedButton(i);
+          saveVote(i);
+        }}
+      >
+        {i}
+      </Button>
+    );
+  }
 
   return (
     <div className="content-basic-info-wrapper">
@@ -58,10 +116,26 @@ export function ContentBasicInfo(props) {
           id={props.id ?? props.contentId}
           type={props.media_type ?? props.contentType}
         />
-        <Button className="rating-button" variant="link" size="sm">
+        <Button
+          className="rating-button"
+          variant="link"
+          size="sm"
+          onClick={() => setRatingModal(true)}
+        >
           Give your rating
           <img className="rating-button-icon" src={rating} alt="ratting" />
         </Button>
+        <ModalElement
+          size="sm"
+          id="modal"
+          show={ratingModal}
+          onHide={() => setRatingModal(false)}
+        >
+          <h3>Rating</h3>
+          <ButtonToolbar>
+            <ButtonGroup>{ratingRange}</ButtonGroup>
+          </ButtonToolbar>
+        </ModalElement>
       </div>
     </div>
   );

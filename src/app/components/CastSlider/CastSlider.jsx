@@ -17,6 +17,7 @@ export function CastSlider(props){
                           <Figure className="content-slider-cast-image" key={index}>
                               <Figure.Image
                                   alt={item?.name}
+                                  key={index}
                                   src={`https://image.tmdb.org/t/p/w185/${item?.profile_path}` || notFoundCover}
                                   className="cast-image"
                               />

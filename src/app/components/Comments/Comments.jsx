@@ -23,7 +23,7 @@ export function Comments(props){
       },
     })
       .then((res) => setUserComments(res.data))
-      .catch((err) => console.log(err));
+      .catch((err) => err);
   };
 
   useEffect(() => {
