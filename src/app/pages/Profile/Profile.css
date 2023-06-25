@@ -25,10 +25,13 @@
   align-self: center;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
   height: fit-content;
   width: 100%;
   padding: 3%;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 25px;
 }
 
 .total-consumption-box {
@@ -36,15 +39,19 @@
   background-color: #fff3;
   border-color: #FFF;
   width: 30%;
-  font-size: 53px;
+  font-size: 46px;
   font-weight: 600;
   display: flex;
   flex-direction: column;
+  border-radius: 2px;
+  padding: 15px;
+  min-width: 365px;
 }
 
 .total-consumption-box-title {
-  font-size: 27px;
+  font-size: 24px;
   color: #EEE;
+  font-weight: 500;
 }
 
 .hours-container {
@@ -52,6 +59,8 @@
   flex-direction: row;
   font-size: 30px;
   justify-content: space-evenly;
+  column-gap: 30px;
+  width: 100%;
 }
 
 .hours-item {
@@ -65,7 +74,7 @@
 
 .hours-item-type {
   color: #EEE;
-  font-size: 22px;
+  font-size: 16px;
 }
 
 .list-container {
@@ -91,7 +100,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 20%;
   justify-content: flex-end;
   column-gap: 15px;
 }
