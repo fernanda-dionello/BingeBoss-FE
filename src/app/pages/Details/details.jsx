@@ -53,6 +53,8 @@ export function Details() {
         }
       />
       <ContentBasicInfo
+        id={id}
+        contentId={contentId}
         channels={contentDetails?.networks}
         first_air_date={contentDetails?.first_air_date}
         last_air_date={contentDetails?.last_air_date}

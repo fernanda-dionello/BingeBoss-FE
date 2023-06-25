@@ -21,3 +21,9 @@ button.button-item:hover, button.button-item.btn:active{
   height: 24px;
   margin-right: 5px;
 }
+
+button.button-active, button.button-active:hover, button.button-active:active{
+  color: #F7873D;
+  text-decoration: none;
+  font-weight: 600;
+}
