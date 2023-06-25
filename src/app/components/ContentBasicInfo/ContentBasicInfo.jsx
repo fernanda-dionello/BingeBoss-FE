@@ -50,7 +50,7 @@ export function ContentBasicInfo(props) {
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
       },
     })
-      .then((res) => setSelectedButton(res.data.rating))
+      .then((res) => setSelectedButton(res.data?.rating))
       .catch((err) => console.log(err));
   }
 

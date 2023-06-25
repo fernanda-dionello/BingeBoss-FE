@@ -79,7 +79,7 @@ export function ContentDetails(props) {
           Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
         },
       })
-        .then((res) => res.data)
+        .then((res) => getWatchedData())
         .catch((err) => console.log(err));
     }
   };
