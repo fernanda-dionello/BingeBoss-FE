@@ -1,0 +1,21 @@
+*{
+  font-family: Almarai, sans-serif;
+}
+
+.profile-container{
+  display: flex;
+  align-self: center;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.profile-welcome-text {
+  font-size: 40px;
+  margin-top: 35px;
+  text-align: center;
+  color: #EEE;
+}
+
+.profile-welcome-name {
+  color: #F7873D;
+}

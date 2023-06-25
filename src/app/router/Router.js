@@ -7,6 +7,7 @@ import { Navigate } from 'react-router-dom'
 import { Results } from '../pages/Results/results';
 import { Settings } from '../pages/Settings/settings';
 import { Details } from '../pages/Details/details';
+import { Profile } from '../pages/Profile/Profile';
 
 const ProtectedRoute = ({ children }) => {
     const { authenticated } = useContext(Context);
@@ -25,7 +26,7 @@ export default function RouterWrapper() {
         <Routes className='content'>
             <Route path='' element={<Start />} />
             <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} />
-            <Route path='/profile' element={<ProtectedRoute></ProtectedRoute>} />
+            <Route path='/profile' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
             <Route path='/settings' element={<ProtectedRoute><Settings /></ProtectedRoute>} />
             <Route path='/results' element={<ProtectedRoute><Results /></ProtectedRoute>} />
             <Route path='/details' element={<ProtectedRoute><Details /></ProtectedRoute>} />
