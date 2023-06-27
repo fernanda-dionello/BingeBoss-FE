@@ -7,6 +7,13 @@
   flex-direction: row;
 }
 
+@media (max-width: 500px) {
+  .button-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
 button.button-item{
   font-weight: 600;
   color: #EEE;

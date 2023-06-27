@@ -60,6 +60,12 @@
   flex-wrap: wrap;
 }
 
+@media (max-width: 500px) {
+  .content-basic-info-wrapper-left {
+    justify-content: center;
+  }
+}
+
 .content-basic-info-wrapper-right {
   display: flex;
   flex-direction: row;
@@ -86,6 +92,14 @@
   column-gap: 30px;
   width: 100%;
   flex-wrap: wrap;
+}
+
+@media (max-width: 500px) {
+  .first-line,
+  .third-line {
+    justify-content: center;
+    row-gap: 20px;
+  }
 }
 
 .second-line {

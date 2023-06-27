@@ -38,7 +38,7 @@ export function CreateUser({ isOpen, onClose }) {
 
     return (
         <ModalElement
-            size='lg'
+            size='md'
             show={isOpen}
             onHide={() => {
                 onClose();

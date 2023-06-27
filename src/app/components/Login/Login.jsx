@@ -32,7 +32,7 @@ export function Login({ isOpen, onClose }) {
 
     return (
         <ModalElement
-            size='lg'
+            size='md'
             show={isOpen}
             onHide={() => {
                 onClose();

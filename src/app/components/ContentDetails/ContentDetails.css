@@ -102,6 +102,14 @@ button.comment-button.btn:active {
   justify-content: space-between;
 }
 
+@media (max-width: 500px) {
+  .content-episodes-details {
+    justify-content: center;
+    row-gap: 16px;
+    flex-wrap: wrap;
+  }
+}
+
 button.show-description-button{
   color: #EEE;
   font-size: 16px;
