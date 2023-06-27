@@ -1,0 +1,15 @@
+.footer{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 10px;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  padding: 14px;
+  column-gap: 14px;
+  background-color: #adb5bd12;
+  >p{
+    margin-bottom: 0px;
+  }
+}
