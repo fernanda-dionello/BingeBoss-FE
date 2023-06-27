@@ -9,7 +9,7 @@ Mainly is a free responsive web platform (PWA) with educational purpose,  allowi
 
 ## Api
 - [BingeBoss-BE](https://github.com/fernanda-dionello/BingeBoss-BE)
-- [TMDB](https://developer.themoviedb.org/reference/intro/getting-started)
+- [TMDB](https://www.themoviedb.org)
 
 ## How to start
 - `npm install`
