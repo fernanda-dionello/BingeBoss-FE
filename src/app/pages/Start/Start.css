@@ -12,6 +12,14 @@
   align-items: flex-end;
 }
 
+@media (max-width: 500px) {
+  .main-container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
 .bottom-menu{
   background: rgba(10, 1, 38, 0.82);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -21,6 +29,13 @@
   justify-content: center;
   align-items: center;
   width: 50%;
+}
+
+@media (max-width: 500px) {
+  .bottom-menu{
+    width: 100%;
+    flex-direction: column-reverse;
+  }
 }
 
 .button.btn.btn-primary{
@@ -40,6 +55,8 @@
 .sign-in {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
   > p {
     color: #EEE;
     font-weight: 400;
@@ -51,6 +68,12 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+@media (max-width: 500px) {
+  .sign-in-container  {
+    width: auto;
+  }
 }
 
 .sign-in-link.btn.btn-link {
@@ -70,6 +93,15 @@
   font-size: 28px;
   margin: 10px;
   color: #EEE;
+}
+
+@media (max-width: 500px) {
+  .start-title{
+    width: 100%;
+    text-align: center;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 }
 
 .series {
