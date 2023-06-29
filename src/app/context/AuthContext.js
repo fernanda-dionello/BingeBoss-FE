@@ -20,6 +20,7 @@ function AuthProvider({ children }) {
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
   const [spoilerProtection, setSpoilerProtection] = useState(false);
+  const [recommendedContents, setRecommendedContents] = useState([]);
 
   const [loginError, setLoginError] = useState({ isError: false, message: "" });
   const [createError, setCreateError] = useState({
@@ -44,6 +45,15 @@ function AuthProvider({ children }) {
         setLoginError({ isError: true, message: err.response.data })
       )
       .finally(() => setIsFetchingLogin(false));
+
+    await Api.get('/userContent/recommendation',
+      {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
+        }
+      })
+      .then(res => setRecommendedContents(res.data))
+      .catch(err => console.log(err));
   }
 
   async function handleCreateNewUser(firstName, lastName, email, password) {
@@ -140,7 +150,8 @@ function AuthProvider({ children }) {
         email,
         isFetchingUpdateUser,
         setIsFetchingUpdateUser,
-        handleUpdateUser
+        handleUpdateUser,
+        recommendedContents
       }}
     >
       {children}

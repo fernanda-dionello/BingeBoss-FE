@@ -1,13 +1,14 @@
 import { ContentSlider } from "../../components/ContentSlider/ContentSlider";
 import './home.css';
 import Api from "../../services/Api";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { BigSlider } from '../../components/BigSlider/BigSlider';
+import { Context } from '../../context/AuthContext';
 
 export function Home(){
 
+    const { recommendedContents } = useContext(Context);
     const [top10Contents, setTop10Contents] = useState([]);
-    const [recommendedContents, setRecommendedContents] = useState([]);
     const [watchingContents, setWatchingContents] = useState([]);
     const [watchedContents, setWatchedContents] = useState([]);
     const [myList, setMyList] = useState([]);
@@ -15,7 +16,6 @@ export function Home(){
 
     useEffect(() => {
         getTop10()
-        getUserRecommendedContent()
         getListByStatus('watching')
         getListByStatus('myList')
         getListByStatus('watched')
@@ -31,17 +31,6 @@ export function Home(){
         })
         .then(res => setTop10Contents(res.data))
         .catch(err => console.log(err));
-    }
-
-    async function getUserRecommendedContent(){        
-      await Api.get('/userContent/recommendation',
-      {
-        headers: {
-          Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
-        }
-      })
-      .then(res => setRecommendedContents(res.data))
-      .catch(err => console.log(err));
     }
 
     async function getListByStatus(contentStatus){        

@@ -5,9 +5,13 @@ import { useContext } from 'react';
 import { Context } from '../../context/AuthContext';
 import { Search } from '../Search/Search';
 import Menu from '../Menu/Menu';
+import { useLocation } from 'react-router-dom';
 
 export function NavTop(){
   const { authenticated } = useContext(Context);
+
+  const location = useLocation();
+  const { pathname } = location;
 
   return (
     <>
@@ -21,7 +25,7 @@ export function NavTop(){
               alt="Logo MarcaTexto"
             />
           </Navbar.Brand>
-          {authenticated ?
+          {authenticated && pathname !== '/' ?
             <>
               <Search />
               <Menu />
